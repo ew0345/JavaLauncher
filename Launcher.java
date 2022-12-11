@@ -1,23 +1,28 @@
 package main;
 
 import java.awt.EventQueue;
-import javax.swing.JFrame;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import java.io.IOException;
 import java.awt.event.ActionEvent;
+import javax.swing.event.ChangeEvent;
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.JCheckBox;
+import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JSeparator;
 import javax.swing.JOptionPane;
+import java.io.IOException;
 
 public class Launcher {
     JFrame container;
-    final String version = "1.0.0";
-    private static String open = "";
+    final String version = "1.0.1";
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
@@ -36,6 +41,15 @@ public class Launcher {
                 }
             }
         } catch (Exception e) {}
+
+        /*try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {}*/
     }
 
     public Launcher() {
@@ -47,14 +61,24 @@ public class Launcher {
         // Setup JFrame
         container = new JFrame();
         container.setResizable(false);
-        container.setBounds(100, 100, 380, 215);
+        container.setBounds(100, 100, 250, 215);
         container.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         container.getContentPane().setLayout(null);
         container.setLocationRelativeTo(null);
 
+        ImageIcon icon3 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(SCC.class.getResource("/main/Icon3.png")));
+
+        JLabel image = new JLabel(new ImageIcon(icon3.getImage()));
+        image.setBounds(150, 35, 90, 50);
+        container.getContentPane().add(image);
+
+        JLabel madeby = new JLabel("Made by Ew0345");
+        madeby.setBounds(150, 89, 86, 14);
+        container.getContentPane().add(madeby);
+
         // Setup UI Elements
-        JMenuBar mb = new JMenuBar();
-        mb.setBounds(0, 0, 380, 20);
+       JMenuBar mb = new JMenuBar();
+        mb.setBounds(0, 0, 250, 20);
         container.getContentPane().add(mb);
 
         JMenu mFile = new JMenu("File");
@@ -71,13 +95,12 @@ public class Launcher {
 
         JButton btnOpenSCC = new JButton("Open SCC");
         btnOpenSCC.setToolTipText("Opens the Sheer Cold Calculator");
-        btnOpenSCC.setHorizontalAlignment(SwingConstants.LEFT);
-        btnOpenSCC.setBounds(0, 30, 95, 28);
+        btnOpenSCC.setBounds(10, 30, 95, 28);
         container.getContentPane().add(btnOpenSCC);
 
         JButton btnOpenArch = new JButton("Open Tome Calc");
         btnOpenArch.setToolTipText("Open the RS3 Archaeology Tome Calculator");
-        btnOpenArch.setBounds(0, 60, 115, 28);
+        btnOpenArch.setBounds(10, 60, 115, 28);
         container.getContentPane().add(btnOpenArch);
 
 
@@ -98,6 +121,6 @@ public class Launcher {
         });
         miExit.addActionListener((ActionEvent e) -> {
             this.container.dispose();
-        });
+});
     }
 }
