@@ -41,15 +41,6 @@ public class Launcher {
                 }
             }
         } catch (Exception e) {}
-
-        /*try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (Exception e) {}*/
     }
 
     public Launcher() {
