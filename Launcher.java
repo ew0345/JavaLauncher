@@ -66,7 +66,7 @@ public class Launcher {
         container.getContentPane().setLayout(null);
         container.setLocationRelativeTo(null);
 
-        ImageIcon icon3 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(SCC.class.getResource("/main/Icon3.png")));
+        ImageIcon icon3 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Launcher.class.getResource("/main/Icon3.png")));
 
         JLabel image = new JLabel(new ImageIcon(icon3.getImage()));
         image.setBounds(150, 35, 90, 50);
